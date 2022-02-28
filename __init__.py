@@ -4,6 +4,7 @@ from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QDialog, QApplication, QFileDialog
 from PyQt5.uic import loadUi
 
+print("Welcome")
 
 def __init_plugin__(app=None):
     from pymol.plugins import addmenuitemqt
