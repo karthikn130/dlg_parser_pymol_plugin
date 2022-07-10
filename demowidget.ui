@@ -19,13 +19,13 @@
   <property name="autoFillBackground">
    <bool>true</bool>
   </property>
-  <widget class="QPushButton" name="pushButton_submit">
+  <widget class="QPushButton" name="pushButton_submit_vina">
    <property name="geometry">
     <rect>
-     <x>300</x>
-     <y>80</y>
-     <width>80</width>
-     <height>51</height>
+     <x>350</x>
+     <y>130</y>
+     <width>81</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="toolTip">
@@ -38,8 +38,8 @@
   <widget class="QPushButton" name="pushButton_close">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>80</y>
+     <x>90</x>
+     <y>190</y>
      <width>80</width>
      <height>51</height>
     </rect>
@@ -51,10 +51,10 @@
     <string>Close</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_folder">
+  <widget class="QLabel" name="label_dlg">
    <property name="geometry">
     <rect>
-     <x>80</x>
+     <x>0</x>
      <y>0</y>
      <width>281</width>
      <height>41</height>
@@ -64,12 +64,12 @@
     <string notr="true">Dlg file or Dock folder or main docking folder</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="input_folder">
+  <widget class="QLineEdit" name="input_dlg">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>40</y>
-     <width>441</width>
+     <width>341</width>
      <height>31</height>
     </rect>
    </property>
@@ -80,11 +80,11 @@
     <string notr="true"/>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_submit_3">
+  <widget class="QPushButton" name="pushButton_help">
    <property name="geometry">
     <rect>
-     <x>180</x>
-     <y>80</y>
+     <x>270</x>
+     <y>190</y>
      <width>80</width>
      <height>51</height>
     </rect>
@@ -96,21 +96,49 @@
     <string>Help</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_2">
+  <widget class="QLabel" name="label_vina">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>150</y>
-     <width>421</width>
-     <height>101</height>
+     <y>90</y>
+     <width>281</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="text">
-    <string>Version 1.0 
-To view all docking scores in all autodock folder, 
-enter main docking folder 
-Dock folder - working directory of autodock
-Main docking folder - Folder which contain all docking folders</string>
+    <string notr="true">Autodock vina output log file</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="input_vina">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>130</y>
+     <width>341</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dlg file or Dock folder or main docking folder&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="text">
+    <string notr="true"/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_submit_dlg">
+   <property name="geometry">
+    <rect>
+     <x>350</x>
+     <y>40</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>Submit</string>
+   </property>
+   <property name="text">
+    <string>Submit</string>
    </property>
   </widget>
  </widget>

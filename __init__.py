@@ -46,26 +46,37 @@ def make_dialog():
 
         
     ## callback for the "submit" button
-    def submit():
+    def submit_vina():
+        global vina_log_file_name 
+        vina_log_file_name  = form.input_vina.text()
+        parse_vina(vina_log_file_name)
+
+
+
+    def submit_dlg():
         global folder_name
 
-        folder_name = form.input_folder.text()
+        folder_name = form.input_dlg.text()
 
         if str(folder_name).endswith(".dlg"):
             score(folder_name)
         else:
             parse_it(folder_name)
         
+    def close():
+        dialog.close()
 
+    def help():
+        print("Version 1.0 \nTo view all docking scores in all autodock folder, \nenter main docking folder \nDock folder - working directory of autodock\nMain docking folder - Folder which contain all docking folders")
+    
 
-
-
-
+    # connect the signals to the slots
 
     # hook up button callbacks
-    form.pushButton_submit.clicked.connect(submit)
-    form.pushButton_close.clicked.connect(dialog.close)
-
+    form.pushButton_submit_dlg.clicked.connect(submit_dlg)
+    form.pushButton_submit_vina.clicked.connect(submit_vina)
+    form.pushButton_close.clicked.connect(close)
+    form.pushButton_help.clicked.connect(help)
 
     return dialog
 
@@ -106,3 +117,18 @@ def score(dlg_file):
     print(best_conf, dlg_file)
             
 
+def parse_vina(vina_log):
+    search = "   1"
+    ligand_name = "Output will be"
+    vina_log_file = open(vina_log, "r")
+    lines = vina_log_file.readlines()
+    for line in lines:
+        if line.startswith(ligand_name):
+            word = line.split()
+            ligand = word[3]
+    
+        if line.startswith(search):
+            word = line.split()
+            score = word[1]
+            print(score, ligand)
+    pass
