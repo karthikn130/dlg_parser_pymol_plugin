@@ -4,7 +4,7 @@ from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QDialog, QApplication, QFileDialog
 from PyQt5.uic import loadUi
 
-print("Welcome")
+print("Welcome all")
 
 def __init_plugin__(app=None):
     from pymol.plugins import addmenuitemqt
@@ -96,6 +96,9 @@ def parse_it(main_folder):
 
     for file in dlg_files:
         score(file)
+    print("please cite this plugin in your work")
+    print("get the citation information in my github page")
+    print("https://github.com/karthikn130/dlg_parser_pymol_plugin")
     
 
 def score(dlg_file):
@@ -115,6 +118,7 @@ def score(dlg_file):
     conf_score.sort()
     best_conf = conf_score[0]
     print(best_conf, dlg_file)
+
             
 
 def parse_vina(vina_log):
@@ -131,4 +135,6 @@ def parse_vina(vina_log):
             word = line.split()
             score = word[1]
             print(score, ligand)
-    pass
+    print("please cite this plugin in your work")
+    print("get the citation information in my github page")
+    print("https://github.com/karthikn130/dlg_parser_pymol_plugin")

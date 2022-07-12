@@ -14,3 +14,5 @@ To view the docking scores enter the main docking folder location.
 when dlg file is given      - docking score of that compound will be displayed
 when dock folder is given   - docking score of that compound will be displayed
 when main docking folder is given - docking score of all the subfolders will be displayed
+
+To get docking score of autodock vina give merge all output file in a single text file and give it as input in the plugin. It will show the docking score along with output ligand name.
