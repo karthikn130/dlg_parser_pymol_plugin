@@ -5,6 +5,9 @@ from PyQt5.QtWidgets import QDialog, QApplication, QFileDialog
 from PyQt5.uic import loadUi
 
 print("Welcome all")
+print("dlg parser pymol plugin version 1.1.0")
+print("Developed by karthikeyan karthikn130@gmail.com")
+print("https://github.com/karthikn130/dlg_parser_pymol_plugin")
 
 def __init_plugin__(app=None):
     from pymol.plugins import addmenuitemqt
