@@ -97,7 +97,8 @@ def parse_it(main_folder):
     for file in dlg_files:
         score(file)
     print("please cite this plugin in your work")
-    print("get the citation information in my github page")
+    print("The doi is: 10.5281/zenodo.6821116")
+    print("get other citation information in my github page")
     print("https://github.com/karthikn130/dlg_parser_pymol_plugin")
     
 
@@ -136,5 +137,6 @@ def parse_vina(vina_log):
             score = word[1]
             print(score, ligand)
     print("please cite this plugin in your work")
-    print("get the citation information in my github page")
+    print("The doi is: 10.5281/zenodo.6821116")
+    print("get other citation information in my github page")
     print("https://github.com/karthikn130/dlg_parser_pymol_plugin")
