@@ -1,4 +1,6 @@
 # dlg_parser_pymol_plugin version 1.1.0
+Developed by karthikeyan karthikn130@gmail.com
+https://github.com/karthikn130/dlg_parser_pymol_plugin
 Download all the files or zip file.
 Then install the plugin.
 To install the plugin, goto plugin manager in pymol and click install new plugin.
