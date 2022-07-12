@@ -16,3 +16,8 @@ when dock folder is given   - docking score of that compound will be displayed
 when main docking folder is given - docking score of all the subfolders will be displayed
 
 To get docking score of autodock vina give merge all output file in a single text file and give it as input in the plugin. It will show the docking score along with output ligand name.
+
+The doi is: 10.5281/zenodo.6821116
+please cite this plugin in your work
+get other citation information in my github page
+https://github.com/karthikn130/dlg_parser_pymol_plugin
