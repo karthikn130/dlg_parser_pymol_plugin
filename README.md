@@ -2,7 +2,8 @@
 Developed by karthikeyan karthikn130@gmail.com
 https://github.com/karthikn130/dlg_parser_pymol_plugin
 Download all the files or zip file.
-Then install the plugin.
+
+Then install the plugin. This pugin platform independent. This works on windows, linux all distros, and mac also
 To install the plugin, goto plugin manager in pymol and click install new plugin.
 Then select the __init__.py file to install the plugin.
 After installation of Pymol plugin, new menu will be created in plugins menu.
