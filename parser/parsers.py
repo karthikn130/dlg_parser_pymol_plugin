@@ -113,3 +113,27 @@ def parse_vina_pdbqt(vina_pdbqt_fol):
         'smiles': pd.Series(smiles)}
     table = pd.DataFrame(d)
     table
+
+# get scores from vina out pdbqt under development
+def scores(vina_pdbqt_fol):
+            os.chdir (vina_pdbqt_fol) #Path where *.pdbqt output files are located
+            files=[]
+            scores=[]
+            for file in glob.glob('*.pdbqt'):
+                with open(file,'rt') as file:
+                    for line in file:
+                        line = line.strip()
+                        if "VINA RESULT" in line:
+                            neg = re.search(r'-\d.\d', line)
+                            if neg:
+                                files.append (file.name)
+                                scores.append (neg.group())
+            d={'file':pd.Series(files),'score':pd.Series(scores)}
+            print ('Raw score values')
+            table=pd.DataFrame (d)
+            print (table)
+            print ('Sorted score values')
+            sort=table.sort_values ('score',ascending=False)
+            print (sort)
+            table.to_csv ('no_sorted_scores.csv')
+            sort.to_csv ('sorted_scores.csv')

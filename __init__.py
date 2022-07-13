@@ -3,10 +3,9 @@ import sys
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QDialog, QApplication, QFileDialog
 from PyQt5.uic import loadUi
-from . import parsers
+from parser import parsers
 
 parsers.citation()
-
 
 def __init_plugin__(app=None):
     from pymol.plugins import addmenuitemqt
