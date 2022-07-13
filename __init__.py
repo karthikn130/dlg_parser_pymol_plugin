@@ -3,11 +3,10 @@ import sys
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QDialog, QApplication, QFileDialog
 from PyQt5.uic import loadUi
+from . import parsers
 
-print("Welcome all")
-print("dlg parser pymol plugin version 1.1.0")
-print("Developed by karthikeyan karthikn130@gmail.com")
-print("https://github.com/karthikn130/dlg_parser_pymol_plugin")
+parsers.citation()
+
 
 def __init_plugin__(app=None):
     from pymol.plugins import addmenuitemqt
@@ -52,8 +51,11 @@ def make_dialog():
     def submit_vina():
         global vina_log_file_name 
         vina_log_file_name  = form.input_vina.text()
-        parse_vina(vina_log_file_name)
+        parsers.parse_vina(vina_log_file_name)
 
+    def submit_vina_pdbqt_fol():
+        vina_pdbqt_fol = form.input_vina_pdbqt_fol()
+        parsers.parse_vina_pdbqt(vina_pdbqt_fol)
 
 
     def submit_dlg():
@@ -62,15 +64,16 @@ def make_dialog():
         folder_name = form.input_dlg.text()
 
         if str(folder_name).endswith(".dlg"):
-            score(folder_name)
+            parsers.score(folder_name)
         else:
-            parse_it(folder_name)
-        
+            parsers.parse_it(folder_name)
+    
+
     def close():
         dialog.close()
 
     def help():
-        print("Version 1.0 \nTo view all docking scores in all autodock folder, \nenter main docking folder \nDock folder - working directory of autodock\nMain docking folder - Folder which contain all docking folders")
+        print("To view all docking scores in all autodock folder, \nenter main docking folder \nDock folder - working directory of autodock\nMain docking folder - Folder which contain all docking folders")
     
 
     # connect the signals to the slots
@@ -78,68 +81,9 @@ def make_dialog():
     # hook up button callbacks
     form.pushButton_submit_dlg.clicked.connect(submit_dlg)
     form.pushButton_submit_vina.clicked.connect(submit_vina)
+    form.pushButton_submit_vina_pdbqt_fol.clicked.connect(submit_vina_pdbqt_fol)
     form.pushButton_close.clicked.connect(close)
     form.pushButton_help.clicked.connect(help)
 
     return dialog
 
-
-def parse_it(main_folder):
-    dlg_files = []
-
-    folder_list = os.listdir(main_folder)
-    for eachfolder in folder_list:
-        if os.path.isdir(os.path.join(main_folder, eachfolder)) == True:
-            if os.path.exists(os.path.join(main_folder, eachfolder, "dock.dlg")):
-                dlg_files.append(os.path.join(main_folder, eachfolder, "dock.dlg"))
-        else:
-            if str(eachfolder).endswith(".dlg"):
-                dlg_files.append(os.path.join(main_folder, eachfolder))
-    
-
-    for file in dlg_files:
-        score(file)
-    print("please cite this plugin in your work")
-    print("The doi is: 10.5281/zenodo.6821116")
-    print("get other citation information in my github page")
-    print("https://github.com/karthikn130/dlg_parser_pymol_plugin")
-    
-
-def score(dlg_file):
-    
-    search = "DOCKED: USER    Estimated Free Energy of Binding"
-    fhandle = open(dlg_file, encoding='utf-8')
-    lines = fhandle.readlines()
-    conf_score = []
-    for line in lines:
-        if line.startswith(search):
-            word = line.split()
-            score = word[8]
-            #list = score.split(sep = "-")
-            #number = list[1]
-            number = float(score)
-            conf_score.append(number)
-    conf_score.sort()
-    best_conf = conf_score[0]
-    print(best_conf, dlg_file)
-
-            
-
-def parse_vina(vina_log):
-    search = "   1"
-    ligand_name = "Output will be"
-    vina_log_file = open(vina_log, "r")
-    lines = vina_log_file.readlines()
-    for line in lines:
-        if line.startswith(ligand_name):
-            word = line.split()
-            ligand = word[3]
-    
-        if line.startswith(search):
-            word = line.split()
-            score = word[1]
-            print(score, ligand)
-    print("please cite this plugin in your work")
-    print("The doi is: 10.5281/zenodo.6821116")
-    print("get other citation information in my github page")
-    print("https://github.com/karthikn130/dlg_parser_pymol_plugin")

@@ -23,7 +23,7 @@
    <property name="geometry">
     <rect>
      <x>350</x>
-     <y>130</y>
+     <y>110</y>
      <width>81</width>
      <height>31</height>
     </rect>
@@ -39,9 +39,9 @@
    <property name="geometry">
     <rect>
      <x>90</x>
-     <y>190</y>
-     <width>80</width>
-     <height>51</height>
+     <y>230</y>
+     <width>71</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="toolTip">
@@ -84,9 +84,9 @@
    <property name="geometry">
     <rect>
      <x>270</x>
-     <y>190</y>
-     <width>80</width>
-     <height>51</height>
+     <y>230</y>
+     <width>71</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="toolTip">
@@ -100,7 +100,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>90</y>
+     <y>70</y>
      <width>281</width>
      <height>41</height>
     </rect>
@@ -113,7 +113,7 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>130</y>
+     <y>110</y>
      <width>341</width>
      <height>31</height>
     </rect>
@@ -139,6 +139,51 @@
    </property>
    <property name="text">
     <string>Submit</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="input_vina_pdbqt_fol">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>180</y>
+     <width>341</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dlg file or Dock folder or main docking folder&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="text">
+    <string notr="true"/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_submit_vina_pdbqt_fol">
+   <property name="geometry">
+    <rect>
+     <x>350</x>
+     <y>180</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>Submit</string>
+   </property>
+   <property name="text">
+    <string>Submit</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_vina_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>140</y>
+     <width>281</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string notr="true">Autodock vina output pdbqt folder</string>
    </property>
   </widget>
  </widget>
