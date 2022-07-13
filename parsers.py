@@ -4,7 +4,7 @@ import re
 import glob
 import openbabel as obabel
 import openbabel.pybel as babel
-import pandas as pd
+#import pandas as pd
 
 def citation():
     print("please cite this plugin in your work")
@@ -115,6 +115,7 @@ def parse_vina_pdbqt(vina_pdbqt_fol):
     table
 
 # get scores from vina out pdbqt under development
+
 def scores(vina_pdbqt_fol):
             os.chdir (vina_pdbqt_fol) #Path where *.pdbqt output files are located
             files=[]
