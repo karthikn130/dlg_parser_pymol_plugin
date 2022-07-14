@@ -1,5 +1,4 @@
 import os
-import sys
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QDialog, QApplication, QFileDialog
 from PyQt5.uic import loadUi
@@ -9,7 +8,7 @@ parsers.citation()
 
 def __init_plugin__(app=None):
     from pymol.plugins import addmenuitemqt
-    addmenuitemqt('Dlg Parse', dlg_parse_gui)
+    addmenuitemqt('Docking score Parser', dlg_parse_gui)
 
 dialog = None
 

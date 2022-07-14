@@ -1,6 +1,5 @@
 
 import os
-import re
 import glob
 
 
@@ -119,6 +118,7 @@ def parse_vina_pdbqt(vina_pdbqt_fol, extension = "*.pdbqt"):
 
 
 # run if file is main
+# this file can be run independently after this point
 if __name__ == "__main__":
     print("this is a module")
     citation()
