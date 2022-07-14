@@ -48,12 +48,12 @@ def make_dialog():
         
     ## callback for the "submit" button
     def submit_vina():
-        global vina_log_file_name 
-        vina_log_file_name  = form.input_vina.text()
-        parsers.parse_vina(vina_log_file_name)
+        global vina_log_folder
+        vina_log_folder  = form.input_vina.text()
+        parsers.parse_vina_log(vina_log_folder)
 
     def submit_vina_pdbqt_fol():
-        vina_pdbqt_fol = form.input_vina_pdbqt_fol()
+        vina_pdbqt_fol = form.input_vina_pdbqt_fol.text()
         parsers.parse_vina_pdbqt(vina_pdbqt_fol)
 
 
@@ -61,11 +61,7 @@ def make_dialog():
         global folder_name
 
         folder_name = form.input_dlg.text()
-
-        if str(folder_name).endswith(".dlg"):
-            parsers.score(folder_name)
-        else:
-            parsers.parse_it(folder_name)
+        parsers.parse_dlg(folder_name)
     
 
     def close():
