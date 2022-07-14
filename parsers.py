@@ -9,9 +9,21 @@ def citation():
     print("The doi is: 10.5281/zenodo.6821116")
     print("get other citation information in my github page")
 
+def check_list(list):
+    #check if a list is not empty
+    if list:
+        return True
+    else:
+        return False
 
 
-#check if a folder has a extension using glob module
+def score_sort(scores):
+    # sorts the scores and returns the best score
+    scores.sort()
+    best_conf = scores[0]
+    return best_conf
+
+
 
 def check_extension(main_folder, extension):
     #creates a list of files with that ext in folder and returns the list
@@ -42,14 +54,6 @@ def check_extension(main_folder, extension):
     return file_list
 
 
-def check_list(list):
-    #check if a list is not empty
-    if list:
-        return True
-    else:
-        return False
-
-
 
 def parse_dlg(main_folder):
     # this function parses the dlg files in folder and its subfolders
@@ -72,13 +76,6 @@ def parse_dlg(main_folder):
     citation()
 
 
-def score_sort(scores):
-    # sorts the scores and returns the best score
-    scores.sort()
-    best_conf = scores[0]
-    return best_conf
-
-            
 
 def parse_vina_log(vina_log_folder):
     # this function parses the vina output log file

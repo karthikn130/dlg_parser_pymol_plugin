@@ -25,8 +25,6 @@ def dlg_parse_gui():
         dialog = make_dialog()
     dialog.show()
 
-single_pdbqt_file = None
-single_dlg_file = None
 
 def make_dialog():
     # entry point to PyMOL's API
@@ -47,8 +45,7 @@ def make_dialog():
 
         
     ## callback for the "submit" button
-    def submit_vina():
-        global vina_log_folder
+    def submit_vina_log_fol():
         vina_log_folder  = form.input_vina.text()
         parsers.parse_vina_log(vina_log_folder)
 
@@ -57,11 +54,9 @@ def make_dialog():
         parsers.parse_vina_pdbqt(vina_pdbqt_fol)
 
 
-    def submit_dlg():
-        global folder_name
-
-        folder_name = form.input_dlg.text()
-        parsers.parse_dlg(folder_name)
+    def submit_dlg_fol():
+        dlg_fol = form.input_dlg.text()
+        parsers.parse_dlg(dlg_fol)
     
 
     def close():
@@ -74,8 +69,8 @@ def make_dialog():
     # connect the signals to the slots
 
     # hook up button callbacks
-    form.pushButton_submit_dlg.clicked.connect(submit_dlg)
-    form.pushButton_submit_vina.clicked.connect(submit_vina)
+    form.pushButton_submit_dlg.clicked.connect(submit_dlg_fol)
+    form.pushButton_submit_vina.clicked.connect(submit_vina_log_fol)
     form.pushButton_submit_vina_pdbqt_fol.clicked.connect(submit_vina_pdbqt_fol)
     form.pushButton_close.clicked.connect(close)
     form.pushButton_help.clicked.connect(help)
