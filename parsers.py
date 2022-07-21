@@ -4,19 +4,32 @@ import glob
 
 
 def citation():
-    print("****************************************************")
-    print("Thank you for using this plugin")
-    print("For more detailed help visit PymolBiomolecules Youtube Chennel")
-    print("please cite this plugin in your work")
-    print("The doi is: 10.5281/zenodo.6821116")
-    print("get other citation information in my github page")
-    print("https://github.com/karthikn130")
-    print("For feedback write to karthikn130@gmail.com")
-    print("****************************************************")
+    print("********************************************************************************")
+    print("please cite this plugin in your work The doi is: 10.5281/zenodo.6821116")
+    print("get other citation information in my github page https://github.com/karthikn130")
+    print("********************************************************************************")
     
+def help():
+    print("***************************************************************************")
+    print("Version 2.0")
+    print("This tool shows the docking scores from ")
+    print("                1. Autodock dlg file located in subfolders")
+    print("                2. Autodock vina output log file located in subfolders")
+    print("                3. Autodock vina output pdbqt file located in subfolders")
+    print("To view all docking scores from working directory or Main docking folder")
+    print("Enter the Main docking folder location and press submit")
+    print("Dock folder - working directory of autodock")
+    print("Main docking folder - Folder which contain all docking folders")
+    print("***************************************************************************")
+    print("Thank you for using this plugin")
+    print("For feedback write to karthikn130@gmail.com")
+    print("For more detailed help visit PymolBiomolecules Youtube Chennel")
+
 
 def check_list(list):
     #check if a list is not empty
+    # if list is not empty return true
+    # if list is empty return false
     if list:
         return True
     else:
@@ -25,6 +38,10 @@ def check_list(list):
 
 def score_sort(scores):
     # sorts the scores and returns the best score
+
+    # check if the list is empty
+    if check_list(scores) == False:
+        return "No scores"
     scores.sort()
     best_conf = scores[0]
     return best_conf
@@ -39,24 +56,21 @@ def check_extension(main_folder, extension):
         if main_folder.endswith(extension):
             return [main_folder]
 
-    os.chdir(main_folder)
+    # get files in main_folder
+    folder_ext = os.path.join(main_folder, extension)
     file_list = []
-    file_list = glob.glob(extension)
-
-    #add a mainfolder path to each item in the list
-    for i in range(len(file_list)):
-        file_list[i] = os.path.join(main_folder, file_list[i])
+    file_list = glob.glob(folder_ext)
     
+
+    # get files in subfolders also
     sub_fol = os.listdir(main_folder)
     for fol in sub_fol:
         if os.path.isdir(os.path.join(main_folder, fol)) == True:
-            os.chdir(os.path.join(main_folder, fol))
-            sub_list = glob.glob(extension)
+            folder_ext = os.path.join(main_folder, fol, extension)
+            sub_list = glob.glob(folder_ext)
             if check_list(sub_list) == True:
-                for i in range(len(sub_list)):
-                    sub_list[i] = os.path.join(main_folder, fol, sub_list[i])
                 file_list.extend(sub_list)
-                
+  
     return file_list
 
 
@@ -87,6 +101,8 @@ def parse_vina_log(vina_log_folder):
     # this function parses the vina output log file
     log_list = check_extension(vina_log_folder, "*.txt")
     for log in log_list:
+        # print name of the text file 
+        print(log)
         search = "   1"
         ligand_name = "Output will be"
         vina_log_file = open(log, "r")
@@ -99,14 +115,13 @@ def parse_vina_log(vina_log_folder):
             if line.startswith(search):
                 word = line.split()
                 score = word[1]
-                print(score, ligand)
+                print(ligand, score)
     citation()
 
 
-def parse_vina_pdbqt(vina_pdbqt_fol, extension = "*.pdbqt"):
-    # takes all vina output pdbqt files in a folder
-    os.chdir(vina_pdbqt_fol)
-    pdbqt_list = check_extension(vina_pdbqt_fol, extension)
+def parse_vina_pdbqt(vina_pdbqt_fol):
+    # takes all vina output pdbqt files in a folder and prints the best score
+    pdbqt_list = check_extension(vina_pdbqt_fol, "*.pdbqt")
     for pdbqt in pdbqt_list:
         search = "REMARK VINA RESULT:"
         vina_pdbqt_file = open(pdbqt, "r")
@@ -118,7 +133,9 @@ def parse_vina_pdbqt(vina_pdbqt_fol, extension = "*.pdbqt"):
                 score = word[3]
                 scores.append(float(score))
         best_conf = score_sort(scores)
-        print(pdbqt, best_conf)
+        # print only if best_conf is not "No scores"
+        if best_conf != "No scores":
+            print(pdbqt, best_conf)
     citation()
 
 

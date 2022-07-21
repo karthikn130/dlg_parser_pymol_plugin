@@ -67,20 +67,7 @@ def make_dialog():
         dialog.close()
 
     def help():
-        print("***************************************************************************")
-        print("Version 2.0")
-        print("This tool shows the docking scores from ")
-        print("                1. Autodock dlg file located in subfolders")
-        print("                2. Autodock vina output log file located in subfolders")
-        print("                3. Autodock vina output pdbqt file located in subfolders")
-        print("To view all docking scores from working directory or Main docking folder")
-        print("Enter the Main docking folder location and press submit")
-        print("Dock folder - working directory of autodock")
-        print("Main docking folder - Folder which contain all docking folders")
-        print("For more detailed help visit PymolBiomolecules Youtube Chennel")
-        print("***************************************************************************")
-        print("Thank you for using this plugin")
-        print("For feedback write to karthikn130@gmail.com")
+        parsers.help()
     
     def browse_dlg():
         # browse for a folder
@@ -121,8 +108,7 @@ def make_dialog():
 
 if __name__ == '__main__':
     print("This plugin is intended to be used in pymol")
-    parsers.citation()
-    
+
     dialog = make_dialog()
     dialog.show()
     app.exec_()
