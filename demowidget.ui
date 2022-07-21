@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>447</width>
-    <height>284</height>
+    <width>634</width>
+    <height>313</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Autodock Dlg Parser and Docking score viewer</string>
+   <string>Autodock and vina Docking score viewer</string>
   </property>
   <property name="toolTip">
    <string>Add Dlg file, Receptor pdbqt file or main docking folder</string>
@@ -22,14 +22,14 @@
   <widget class="QPushButton" name="pushButton_submit_vina">
    <property name="geometry">
     <rect>
-     <x>350</x>
-     <y>110</y>
+     <x>550</x>
+     <y>120</y>
      <width>81</width>
      <height>31</height>
     </rect>
    </property>
    <property name="toolTip">
-    <string>Submit</string>
+    <string>get score from selected folder</string>
    </property>
    <property name="text">
     <string>Submit</string>
@@ -38,14 +38,14 @@
   <widget class="QPushButton" name="pushButton_close">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>230</y>
-     <width>71</width>
-     <height>41</height>
+     <x>180</x>
+     <y>260</y>
+     <width>84</width>
+     <height>34</height>
     </rect>
    </property>
    <property name="toolTip">
-    <string>Close the Plugin</string>
+    <string>Close me</string>
    </property>
    <property name="text">
     <string>Close</string>
@@ -54,27 +54,27 @@
   <widget class="QLabel" name="label_dlg">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>0</y>
+     <x>20</x>
+     <y>10</y>
      <width>281</width>
      <height>41</height>
     </rect>
    </property>
    <property name="text">
-    <string notr="true">Dlg file or Dock folder or main docking folder</string>
+    <string notr="true">Docking folder or main docking folder location</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="input_dlg">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>40</y>
-     <width>341</width>
+     <x>10</x>
+     <y>50</y>
+     <width>411</width>
      <height>31</height>
     </rect>
    </property>
    <property name="toolTip">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dlg file or Dock folder or main docking folder&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enter Autodock main docking folder&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
    <property name="text">
     <string notr="true"/>
@@ -83,14 +83,14 @@
   <widget class="QPushButton" name="pushButton_help">
    <property name="geometry">
     <rect>
-     <x>270</x>
-     <y>230</y>
-     <width>71</width>
-     <height>41</height>
+     <x>350</x>
+     <y>260</y>
+     <width>84</width>
+     <height>34</height>
     </rect>
    </property>
    <property name="toolTip">
-    <string>About and feedback</string>
+    <string>Help me</string>
    </property>
    <property name="text">
     <string>Help</string>
@@ -99,27 +99,27 @@
   <widget class="QLabel" name="label_vina">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>70</y>
+     <x>20</x>
+     <y>80</y>
      <width>281</width>
      <height>41</height>
     </rect>
    </property>
    <property name="text">
-    <string notr="true">Autodock vina output log file</string>
+    <string notr="true">Autodock vina output log folder location</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="input_vina">
+  <widget class="QLineEdit" name="input_vina_log">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>110</y>
-     <width>341</width>
+     <x>10</x>
+     <y>120</y>
+     <width>411</width>
      <height>31</height>
     </rect>
    </property>
    <property name="toolTip">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dlg file or Dock folder or main docking folder&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enter Autodock vina main docking folder which contain log files in subfolders&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
    <property name="text">
     <string notr="true"/>
@@ -128,14 +128,14 @@
   <widget class="QPushButton" name="pushButton_submit_dlg">
    <property name="geometry">
     <rect>
-     <x>350</x>
-     <y>40</y>
+     <x>550</x>
+     <y>50</y>
      <width>81</width>
      <height>31</height>
     </rect>
    </property>
    <property name="toolTip">
-    <string>Submit</string>
+    <string>get score from selected folder</string>
    </property>
    <property name="text">
     <string>Submit</string>
@@ -144,14 +144,14 @@
   <widget class="QLineEdit" name="input_vina_pdbqt_fol">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>180</y>
-     <width>341</width>
+     <x>10</x>
+     <y>190</y>
+     <width>411</width>
      <height>31</height>
     </rect>
    </property>
    <property name="toolTip">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dlg file or Dock folder or main docking folder&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enter Autodock vina main docking folder which contain output pdbqt files in subfolders&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
    <property name="text">
     <string notr="true"/>
@@ -160,14 +160,14 @@
   <widget class="QPushButton" name="pushButton_submit_vina_pdbqt_fol">
    <property name="geometry">
     <rect>
-     <x>350</x>
-     <y>180</y>
+     <x>550</x>
+     <y>190</y>
      <width>81</width>
      <height>31</height>
     </rect>
    </property>
    <property name="toolTip">
-    <string>Submit</string>
+    <string>get score from selected folder</string>
    </property>
    <property name="text">
     <string>Submit</string>
@@ -176,14 +176,62 @@
   <widget class="QLabel" name="label_vina_2">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>140</y>
+     <x>20</x>
+     <y>150</y>
      <width>281</width>
      <height>41</height>
     </rect>
    </property>
    <property name="text">
-    <string notr="true">Autodock vina output pdbqt folder</string>
+    <string notr="true">Autodock vina output pdbqt folder location</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="browse_dlg">
+   <property name="geometry">
+    <rect>
+     <x>440</x>
+     <y>50</y>
+     <width>101</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>Select Autodock  main folder which contains subfolders</string>
+   </property>
+   <property name="text">
+    <string>Browse folder</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="browse_log">
+   <property name="geometry">
+    <rect>
+     <x>440</x>
+     <y>120</y>
+     <width>101</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enter Autodock vina main docking folder which contain log files in subfolders&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="text">
+    <string>Browse folder</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="browse_pdbqt">
+   <property name="geometry">
+    <rect>
+     <x>440</x>
+     <y>190</y>
+     <width>101</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enter Autodock vina main docking folder which contain output pdbqt files in subfolders&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="text">
+    <string>Browse folder</string>
    </property>
   </widget>
  </widget>

@@ -4,9 +4,16 @@ import glob
 
 
 def citation():
+    print("****************************************************")
+    print("Thank you for using this plugin")
+    print("For more detailed help visit PymolBiomolecules Youtube Chennel")
     print("please cite this plugin in your work")
     print("The doi is: 10.5281/zenodo.6821116")
     print("get other citation information in my github page")
+    print("https://github.com/karthikn130")
+    print("For feedback write to karthikn130@gmail.com")
+    print("****************************************************")
+    
 
 def check_list(list):
     #check if a list is not empty
@@ -120,5 +127,6 @@ def parse_vina_pdbqt(vina_pdbqt_fol, extension = "*.pdbqt"):
 # run if file is main
 # this file can be run independently after this point
 if __name__ == "__main__":
-    print("this is a module")
+    print("This is a module")
+    print("This plugin is intended to be used in pymol")
     citation()

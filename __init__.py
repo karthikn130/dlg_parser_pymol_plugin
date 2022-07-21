@@ -2,7 +2,11 @@ import os
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QDialog, QApplication, QFileDialog
 from PyQt5.uic import loadUi
-from . import parsers
+import parsers
+
+from PyQt5.QtWidgets import QFileDialog, QApplication, QWidget, QPushButton, QVBoxLayout
+
+app = QApplication([])
 
 parsers.citation()
 
@@ -33,7 +37,6 @@ def make_dialog():
     # and/or PySide as well
     from pymol.Qt import QtWidgets
     from pymol.Qt.utils import loadUi
-    from pymol.Qt.utils import getSaveFileNameWithExt
 
     # create a new Window
     dialog = QtWidgets.QDialog()
@@ -45,7 +48,7 @@ def make_dialog():
         
     ## callback for the "submit" button
     def submit_vina_log_fol():
-        vina_log_folder  = form.input_vina.text()
+        vina_log_folder  = form.input_vina_log.text()
         parsers.parse_vina_log(vina_log_folder)
 
     def submit_vina_pdbqt_fol():
@@ -59,20 +62,68 @@ def make_dialog():
     
 
     def close():
+        print("Thank you for using this plugin")
+        print("For feedback write to karthikn130@gmail.com")
         dialog.close()
 
     def help():
-        print("To view all docking scores in all autodock folder, \nenter main docking folder \nDock folder - working directory of autodock\nMain docking folder - Folder which contain all docking folders")
+        print("***************************************************************************")
+        print("Version 2.0")
+        print("This tool shows the docking scores from ")
+        print("                1. Autodock dlg file located in subfolders")
+        print("                2. Autodock vina output log file located in subfolders")
+        print("                3. Autodock vina output pdbqt file located in subfolders")
+        print("To view all docking scores from working directory or Main docking folder")
+        print("Enter the Main docking folder location and press submit")
+        print("Dock folder - working directory of autodock")
+        print("Main docking folder - Folder which contain all docking folders")
+        print("For more detailed help visit PymolBiomolecules Youtube Chennel")
+        print("***************************************************************************")
+        print("Thank you for using this plugin")
+        print("For feedback write to karthikn130@gmail.com")
     
+    def browse_dlg():
+        # browse for a folder
+        folder = QFileDialog.getExistingDirectory(dialog, "Select main docking folder - Autodock")
+        form.input_dlg.setText(folder)
 
-    # connect the signals to the slots
+    def browse_vina_log():
+        # browse for a folder
+        folder = QFileDialog.getExistingDirectory(dialog, "Select main docking folder - Autodock vina")
+        form.input_vina_log.setText(folder)
 
-    # hook up button callbacks
+    def browse_vina_pdbqt():
+        # browse for a folder
+        folder = QFileDialog.getExistingDirectory(dialog, "Select main docking folder - Autodock vina")
+        form.input_vina_pdbqt_fol.setText(folder)
+
+
+    # hook up the buttons to their callback functions
+
+    # hook up submit buttons
     form.pushButton_submit_dlg.clicked.connect(submit_dlg_fol)
     form.pushButton_submit_vina.clicked.connect(submit_vina_log_fol)
     form.pushButton_submit_vina_pdbqt_fol.clicked.connect(submit_vina_pdbqt_fol)
+
+    # hook up close and help button
     form.pushButton_close.clicked.connect(close)
     form.pushButton_help.clicked.connect(help)
 
+    # hook up browse button
+    form.browse_dlg.clicked.connect(browse_dlg)
+    form.browse_log.clicked.connect(browse_vina_log)
+    form.browse_pdbqt.clicked.connect(browse_vina_pdbqt)
+
     return dialog
+
+
+
+
+if __name__ == '__main__':
+    print("This plugin is intended to be used in pymol")
+    parsers.citation()
+    
+    dialog = make_dialog()
+    dialog.show()
+    app.exec_()
 
