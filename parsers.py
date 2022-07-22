@@ -140,10 +140,10 @@ def parse_vina_pdbqt(vina_pdbqt_fol):
 
 
 
-
+# while testing the plugin uncomment the following lines
 # run if file is main
 # this file can be run independently after this point
-if __name__ == "__main__":
-    print("This is a module")
-    print("This plugin is intended to be used in pymol")
-    citation()
+# if __name__ == "__main__":
+#     print("This is a module")
+#     print("This plugin is intended to be used in pymol")
+#     citation()

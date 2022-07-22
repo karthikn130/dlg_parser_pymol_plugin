@@ -6,7 +6,8 @@ from . import parsers
 
 from PyQt5.QtWidgets import QFileDialog, QApplication, QWidget, QPushButton, QVBoxLayout
 
-app = QApplication([])
+# while testing the plugin, you can use this function to show the dialog
+# application = QApplication([])
 
 parsers.citation()
 
@@ -105,11 +106,11 @@ def make_dialog():
 
 
 
+# while testing the plugin, you can use this function to show the dialog
+# if __name__ == '__main__':
+#     print("This plugin is intended to be used in pymol")
 
-if __name__ == '__main__':
-    print("This plugin is intended to be used in pymol")
-
-    dialog = make_dialog()
-    dialog.show()
-    app.exec_()
+#     dialog = make_dialog()
+#     dialog.show()
+#     app.exec_()
 
