@@ -17,6 +17,7 @@ This is a schrodinger-pymol plugin.Install this plugin like anyother plugin in p
 
 To get docking score of autodock vina enter the main folder name as input. It will show the docking score along with output ligand name.
 
+Article: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4170089
 The doi is: 10.5281/zenodo.6821116
 please cite this plugin in your work
 get other citation information in my github page
